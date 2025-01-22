@@ -19,8 +19,8 @@ st.set_page_config(page_title="Airline Passenger Satisfation Data Explore", page
 page = st.sidebar.selectbox("Select a Page", ["Home", "Data Overview", "Exploratory Data Analysis", "Model Training and Evaluation", "Make Predictions!", "Extras"])
 
 # Import data
-df = pd.read_csv("/Applications/App/cleaned_train.csv")  
-test = pd.read_csv("/Applications/App/cleaned_test.csv") 
+df = pd.read_csv("cleaned_train.csv")  
+test = pd.read_csv("cleaned_test.csv") 
 # Get the numerical and categorical columns for visualization
 num_cols = df.select_dtypes(include=['float64', 'int64']).columns
 obj_cols = df.select_dtypes(include=['object']).columns
