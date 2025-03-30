@@ -29,7 +29,53 @@ Payment: Payment used by customer for purchase (3 methods are available – Cash
 COGS: Cost of goods sold
 Gross margin percentage: Gross margin percentage
 Gross income: Gross income
-Rating: Customer stratification rating on their overall shopping experience (On a scale of 1 to 1
+Rating: Customer stratification rating on their overall shopping experience (On a scale of 1 to 1)
+
+Encoded Data used for model: 
+
+Encoding column: Branch
+Original values: ['A' 'C' 'B']
+Mapping:
+  A → 0
+  B → 1
+  C → 2
+
+Encoding column: City
+Original values: ['Yangon' 'Naypyitaw' 'Mandalay']
+Mapping:
+  Mandalay → 0
+  Naypyitaw → 1
+  Yangon → 2
+
+Encoding column: Customer type
+Original values: ['Member' 'Normal']
+Mapping:
+  Member → 0
+  Normal → 1
+
+Encoding column: Gender
+Original values: ['Female' 'Male']
+Mapping:
+  Female → 0
+  Male → 1
+
+Encoding column: Product line
+Original values: ['Health and beauty' 'Electronic accessories' 'Home and lifestyle'
+ 'Sports and travel' 'Food and beverages' 'Fashion accessories']
+Mapping:
+  Electronic accessories → 0
+  Fashion accessories → 1
+  Food and beverages → 2
+  Health and beauty → 3
+  Home and lifestyle → 4
+  Sports and travel → 5
+
+Encoding column: Payment
+Original values: ['Ewallet' 'Cash' 'Credit card']
+Mapping:
+  Cash → 0
+  Credit card → 1
+  Ewallet → 2
 
 **Conclusion **
 Through data exploration I began to realize there was something fishy about the data. The same gender always went to the same branches as an example. There also was very low correlation levels between the columns. The dataset also had a lot of unneeded noise I handled with rounding. 
