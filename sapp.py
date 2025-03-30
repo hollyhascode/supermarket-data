@@ -164,7 +164,7 @@ elif page == "Make Predictions!":
     #0 is member, 2 is non-member 
     productLine = st.slider("Product line (Key:  Electronic accessories → 0 Fashion accessories → 1 Food and beverages → 2 Health and beauty → 3 Home and lifestyle → 4 Sports and travel → 5)", min_value=0.0, max_value=5.0, value=1.0, step=1.0)
     #0 is business, 1 is eco, 2 is eco plus 
-    Payment = st.slider("Payment (Key: Cash → 0 Credit card → 1 Ewallet → 2)", min_value=0.0, max_value=3.0, value=0.0, step=1.0)
+    Payment = st.slider("Payment (Key: Cash → 0 Credit card → 1 Ewallet → 2)", min_value=0.0, max_value=2.0, value=0.0, step=1.0)
     Gender = st.slider("Gender (Key: Female → 0 Male → 1)", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
     Rating = st.slider("Rating", min_value=0.0, max_value=10.0, value=0.0, step=1.0)
     #1 is male and 0 is female 
