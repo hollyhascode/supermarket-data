@@ -12,15 +12,15 @@ from sklearn.preprocessing import StandardScaler
 
 
 # Set page title and icon
-st.set_page_config(page_title="Airline Passenger Satisfation Data Explore", page_icon="🌸")
+st.set_page_config(page_title="Supermarket Sales Explorer", page_icon="🌸")
 
 # Sidebar for navigation
 # Sidebar navigation
 page = st.sidebar.selectbox("Select a Page", ["Home", "Data Overview", "Exploratory Data Analysis", "Model Training and Evaluation", "Make Predictions!", "Extras"])
 
 # Import data
-df = pd.read_csv("cleaned_train.csv")  
-test = pd.read_csv("cleaned_test.csv") 
+df = pd.read_csv("train.csv")  
+test = pd.read_csv("test.csv") 
 # Get the numerical and categorical columns for visualization
 num_cols = df.select_dtypes(include=['float64', 'int64']).columns
 obj_cols = df.select_dtypes(include=['object']).columns
@@ -30,14 +30,14 @@ obj_cols = df.select_dtypes(include=['object']).columns
 # Home Page
 if page == "Home":
     
-    st.title("📊 Airline Customer Satisfaction Dataset Explorer")
+    st.title("📊 Supermarket Sales Explorer")
     st.subheader("Welcome to our Airline Customer Satisfaction  dataset explorer app!")
     st.write("""
-        This app provides an interactive platform to explore the Airline Customer Satisfaction dataset.
+        This app provides an interactive platform to explore the Supermarket Sales dataset.
         You can visualize the distribution of data, explore relationships between features, and even make predictions on new data!
         Use the sidebar to navigate through the sections.
     """)
-    st.image('https://www.retently.com/wp-content/uploads/2018/08/Airline-satisfaction-cover-1.png', caption="Airplane Customer Satification Data Analytics")
+    st.image('https://www.supermarketperimeter.com/ext/resources/2023/06/29/sp-invafresh-1200x800-main-image.jpg?height=667&t=1689599198&width=1080', caption="Airplane Customer Satification Data Analytics")
 
 # Data Overview Page
 elif page == "Data Overview":
@@ -45,11 +45,9 @@ elif page == "Data Overview":
 
     st.subheader("About the Data")
     st.write("""
-        The Airplane Customer Satisfaction Dataset goes over 103,904 different customer experiences and stats. Using this data we can explore factors that lead to positive and negative customer experiences.   
+        The Supermarket Sales Explorer goes over 1,000 different customer experiences and stats. Using this data we can explore factors that lead to positive and negative customer experiences.   
     """)
-    st.image("https://upgradedpoints.com/wp-content/uploads/2023/03/upgradedpoints-airlinecustomerservice-graphic-v4_og_1920x1080.png?auto=webp&disable=upscale&width=1200")
-
-    # Dataset Display
+    st.image('https://dmrqkbkq8el9i.cloudfront.net/Pictures/480x270/2/7/3/254273_techtrolleygettyimages154957058_139513_crop.jpg')
     st.subheader("Quick Glance at the Data")
     if st.checkbox("Show DataFrame"):
         st.dataframe(df)
@@ -158,70 +156,31 @@ elif page == "Model Training and Evaluation":
 elif page == "Make Predictions!":
     st.title("🌸 Make Predictions")
 
-    st.subheader("Adjust the values below to make predictions on the Airplane Customer Satisfaction dataset:")
-
+    st.subheader("Adjust the values below to make predictions on the Supermarket Sales dataset:")
+Customer type,Product line,Payment,Gender,Rating,gross income,Branch
     # User inputs for prediction
     #satisfaction = st.slider("satisfaction", min_value=4.0, max_value=8.0, value=5.1)
-    travel_type = st.slider("Type of Travel", min_value=2.0, max_value=4.5, value=3.5, step=1.0)
+    customerType = st.slider("Customer type", min_value=2.0, max_value=4.5, value=3.5, step=1.0)
     #1 is personal travel, #2 is business 
-    classType = st.slider("Class", min_value=0.0, max_value=2.0, value=1.0, step=1.0)
+    productLine = st.slider("Product line", min_value=0.0, max_value=2.0, value=1.0, step=1.0)
     #0 is business, 1 is eco, 2 is eco plus 
-    dept_delay = st.slider("Departure Delay in Minutes ", min_value=0.1, max_value=300.0, value=0.2)
-    id = st.slider("passenger number", min_value=2.0, max_value=4.5, value=3.5)
-    Gender = st.slider("Gender", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
+    Payment = st.slider("Payment", min_value=0.1, max_value=300.0, value=0.2)
+    Gender = st.slider("Gender", min_value=2.0, max_value=4.5, value=3.5)
+    Rating = st.slider("Rating", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
     #1 is male and 0 is female 
-    CustomerType = st.slider("Customer Type", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
+    grossIncome = st.slider("gross income", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
     #1 is personal travel , 0 is business travel 
-    Age = st.slider("Age", min_value=0.0, max_value=100.0, value=35.0, step=1.0)
-    ArrivalDelay = st.slider("Arrival Delay in Minutes", min_value=0.0, max_value=300.0, value=0.0)
-    baghandle = st.slider("Baggage handling", min_value=1.0, max_value=5.0, value=1.0, step=1.0)
-    clean = st.slider("Cleanliness", min_value=1.0, max_value=5.0, value=3.0, step=1.0)
-    easyleavetime = st.slider("Departure/Arrival time convenient", min_value=1.0, max_value=4.5, value=3.5, step=1.0)
-    easywebbook = st.slider("Ease of Online booking", min_value=1.0, max_value=5.0, value=3.5, step=1.0)
-    distance = st.slider("Flight Distance", min_value=1.0, max_value=5.0, value=3.0, step=1.0) 
-    Checkin = st.slider("Checkin service", min_value=1.0, max_value=5.0, value=3.0, step=1.0) 
-    foodDrink = st.slider("Food and drink", min_value=1.0, max_value=5.0, value = 3.0, step=1.0) 
-    gatelocation = st.slider("Gate location", min_value=1.0, max_value=5.0, value = 3.0, step=1.0) 
-    
-    Inflightentertainment = st.slider("Inflight entertainment", min_value=1.0, max_value=5.0, value = 3.5, step=1.0) 
-    Inflightservice = st.slider("Inflight service", min_value=1.0, max_value=5.0, value = 3.5, step=1.0) 
-    Inflightwifiservice = st.slider("Inflight wifi service", min_value=1.0, max_value=5.0, value = 3.5, step=1.0) 
-    Legroomservice = st.slider("Leg room service", min_value=1.0, max_value=5.0, value = 3.5, step=1.0) 
-    Onboardservice = st.slider("On-board service", min_value=1.0, max_value=5.0, value = 3.5, step=1.0)
-    Onlineboarding = st.slider("Online boarding", min_value=1.0, max_value=5.0, value = 3.5, step=1.0)
-    Seatcomfort = st.slider("Seat comfort", min_value=1.0, max_value=5.0, value = 3.5, step=1.0)
-    id = st.slider("id", min_value=2.0, max_value=4.5, value = 3.5)
+
       
     # User input dataframe
     user_input = pd.DataFrame({
        
-        "id": [id],
+        "Customer type": [customerType],
+        'Product line': [productLine], 
+        'Payment': [Payment], 
         'Gender': [Gender], 
-        'Customer Type': [CustomerType], 
-        'Age': [Age], 
-        'Type of Travel': [travel_type],
-        'Class': [classType],
-        "Flight Distance": [distance], 
-        "Inflight wifi service": Inflightwifiservice,
-        "Departure/Arrival time convenient": [easyleavetime],  
-        "Ease of Online booking": [easywebbook],
-        "Gate location": [gatelocation],
-        "Food and drink": [foodDrink],
-        "Online boarding": [Onlineboarding],  
-        "Seat comfort": [Seatcomfort], 
-        "Inflight entertainment": [Inflightentertainment],
-        "On-board service": [Onboardservice], 
-        "Leg room service": [Legroomservice], 
-        'Baggage handling': [baghandle], 
-        "Checkin service": [Checkin],
-        "Inflight service": [Inflightservice],  
-        "Cleanliness": [clean], 
-        'Departure Delay in Minutes': [dept_delay],
-        'Arrival Delay in Minutes': [ArrivalDelay],   
-        #'satisfaction': [satisfaction]
-        
-       
-        #'Customer Type': [CustomerType],  
+        'Rating': [Rating],
+        'gross income': [grossIncome]
          
        
        
@@ -249,8 +208,8 @@ elif page == "Make Predictions!":
 
     # Use KNN (k=9) as the model for predictions
     model = KNeighborsClassifier(n_neighbors=9)
-    X = df.drop(columns = 'satisfaction')
-    y = df['satisfaction']
+    X = df.drop(columns = 'Branch)
+    y = df['Branch']
 
     # Scale the data
     scaler = StandardScaler()
