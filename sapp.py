@@ -157,7 +157,7 @@ elif page == "Make Predictions!":
     st.title("🌸 Make Predictions")
 
     st.subheader("Adjust the values below to make predictions on the Supermarket Sales dataset:")
-Customer type,Product line,Payment,Gender,Rating,gross income,Branch
+
     # User inputs for prediction
     #satisfaction = st.slider("satisfaction", min_value=4.0, max_value=8.0, value=5.1)
     customerType = st.slider("Customer type", min_value=2.0, max_value=4.5, value=3.5, step=1.0)
