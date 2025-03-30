@@ -118,8 +118,8 @@ elif page == "Model Training and Evaluation":
     model_option = st.sidebar.selectbox("Select a model", ["K-Nearest Neighbors", "Logistic Regression", "Random Forest"])
 
     # Prepare the data
-    X = df.drop(columns = 'satisfaction')
-    y = df['satisfaction']
+    X = df.drop(columns = 'Branch')
+    y = df['Branch']
 
     # Train-test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, stratify=y)
@@ -208,7 +208,7 @@ Customer type,Product line,Payment,Gender,Rating,gross income,Branch
 
     # Use KNN (k=9) as the model for predictions
     model = KNeighborsClassifier(n_neighbors=9)
-    X = df.drop(columns = 'Branch)
+    X = df.drop(columns = 'Branch')
     y = df['Branch']
 
     # Scale the data
