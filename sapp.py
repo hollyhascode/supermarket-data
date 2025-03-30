@@ -160,7 +160,7 @@ elif page == "Make Predictions!":
 
     # User inputs for prediction
     #Branch = st.slider("Branch", min_value=4.0, max_value=8.0, value=5.1)
-    customerType = st.slider("Customer type", min_value=0.0, max_value=2.0, value=0, step=1.0)
+    customerType = st.slider("Customer type", min_value=0.0, max_value=2.0, value=0.0, step=1.0)
     #0 is member, 2 is non-member 
     productLine = st.slider("Product line", min_value=0.0, max_value=5.0, value=1.0, step=1.0)
     #0 is business, 1 is eco, 2 is eco plus 
