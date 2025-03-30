@@ -160,12 +160,12 @@ elif page == "Make Predictions!":
 
     # User inputs for prediction
     #Branch = st.slider("Branch", min_value=4.0, max_value=8.0, value=5.1)
-    customerType = st.slider("Customer type", min_value=0.0, max_value=2.0, value=0.0, step=1.0)
+    customerType = st.slider("Customer type (Key: Member → 0 Normal → 1)", min_value=0.0, max_value=2.0, value=0.0, step=1.0)
     #0 is member, 2 is non-member 
-    productLine = st.slider("Product line", min_value=0.0, max_value=5.0, value=1.0, step=1.0)
+    productLine = st.slider("Product line (Key:  Electronic accessories → 0 Fashion accessories → 1 Food and beverages → 2 Health and beauty → 3 Home and lifestyle → 4 Sports and travel → 5)", min_value=0.0, max_value=5.0, value=1.0, step=1.0)
     #0 is business, 1 is eco, 2 is eco plus 
-    Payment = st.slider("Payment", min_value=0.0, max_value=3.0, value=0.0)
-    Gender = st.slider("Gender", min_value=0.0, max_value=2.5, value=0.0)
+    Payment = st.slider("Payment (Key: Cash → 0 Credit card → 1 Ewallet → 2)", min_value=0.0, max_value=3.0, value=0.0, step=1.0)
+    Gender = st.slider("Gender (Key: Female → 0 Male → 1)", min_value=0.0, max_value=2.0, value=0.0, step=1.0)
     Rating = st.slider("Rating", min_value=0.0, max_value=10.0, value=0.0, step=1.0)
     #1 is male and 0 is female 
     grossIncome = st.slider("gross income", min_value=0.0, max_value=500000.0, value=0.0, step=5000.0)
@@ -226,5 +226,5 @@ elif page == "Make Predictions!":
 
 
     # Display the result
-    st.write(f"The model predicts that the passenger is of the Branch is : **{prediction}**")
+    st.write(f"The model predicts that the passenger is of the Branch is (Branch Key Mapping: A → 0 B → 1 C → 2) : **{prediction}**")
     st.balloons()
