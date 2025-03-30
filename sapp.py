@@ -31,7 +31,7 @@ obj_cols = df.select_dtypes(include=['object']).columns
 if page == "Home":
     
     st.title("📊 Supermarket Sales Explorer")
-    st.subheader("Welcome to our Airline Customer Satisfaction  dataset explorer app!")
+    st.subheader("Welcome to our Airline Customer Branch  dataset explorer app!")
     st.write("""
         This app provides an interactive platform to explore the Supermarket Sales dataset.
         You can visualize the distribution of data, explore relationships between features, and even make predictions on new data!
@@ -68,8 +68,8 @@ elif page == "Exploratory Data Analysis":
         h_selected_col = st.selectbox("Select a numerical column for the histogram:", num_cols)
         if h_selected_col:
             chart_title = f"Distribution of {h_selected_col.title().replace('_', ' ')}"
-            if st.checkbox("Show by satisfaction"):
-                st.plotly_chart(px.histogram(df, x=h_selected_col, color='satisfaction', title=chart_title, barmode='overlay'))
+            if st.checkbox("Show by Branch"):
+                st.plotly_chart(px.histogram(df, x=h_selected_col, color='Branch', title=chart_title, barmode='overlay'))
             else:
                 st.plotly_chart(px.histogram(df, x=h_selected_col, title=chart_title))
 
@@ -78,7 +78,7 @@ elif page == "Exploratory Data Analysis":
         b_selected_col = st.selectbox("Select a numerical column for the box plot:", num_cols)
         if b_selected_col:
             chart_title = f"Distribution of {b_selected_col.title().replace('_', ' ')}"
-            st.plotly_chart(px.box(df, x='satisfaction', y=b_selected_col, title=chart_title, color='satisfaction'))
+            st.plotly_chart(px.box(df, x='Branch', y=b_selected_col, title=chart_title, color='Branch'))
 
     if 'Scatterplots' in eda_type:
         st.subheader("Scatterplots - Visualizing Relationships")
@@ -86,14 +86,14 @@ elif page == "Exploratory Data Analysis":
         selected_col_y = st.selectbox("Select y-axis variable:", num_cols)
         if selected_col_x and selected_col_y:
             chart_title = f"{selected_col_x.title().replace('_', ' ')} vs. {selected_col_y.title().replace('_', ' ')}"
-            st.plotly_chart(px.scatter(df, x=selected_col_x, y=selected_col_y, color='satisfaction', title=chart_title))
+            st.plotly_chart(px.scatter(df, x=selected_col_x, y=selected_col_y, color='Branch', title=chart_title))
 
     if 'Count Plots' in eda_type:
         st.subheader("Count Plots - Visualizing Categorical Distributions")
         selected_col = st.selectbox("Select a categorical variable:", obj_cols)
         if selected_col:
             chart_title = f'Distribution of {selected_col.title()}'
-            st.plotly_chart(px.histogram(df, x=selected_col, color='satisfaction', title=chart_title))
+            st.plotly_chart(px.histogram(df, x=selected_col, color='Branch', title=chart_title))
 
 # Extras Page
 elif page == "Extras":
@@ -159,7 +159,7 @@ elif page == "Make Predictions!":
     st.subheader("Adjust the values below to make predictions on the Supermarket Sales dataset:")
 
     # User inputs for prediction
-    #satisfaction = st.slider("satisfaction", min_value=4.0, max_value=8.0, value=5.1)
+    #Branch = st.slider("Branch", min_value=4.0, max_value=8.0, value=5.1)
     customerType = st.slider("Customer type", min_value=2.0, max_value=4.5, value=3.5, step=1.0)
     #1 is personal travel, #2 is business 
     productLine = st.slider("Product line", min_value=0.0, max_value=2.0, value=1.0, step=1.0)
@@ -226,5 +226,5 @@ elif page == "Make Predictions!":
 
 
     # Display the result
-    st.write(f"The model predicts that the passenger is of the Satisfaction (0 is neutral or unsatisfied, 1 is satisfied) : **{prediction}**")
+    st.write(f"The model predicts that the passenger is of the Branch is : **{prediction}**")
     st.balloons()
