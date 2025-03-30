@@ -6,51 +6,35 @@
 </div>
 
 ## Introduction
-Welcome to this hands-on mini-project where you'll be creating a Streamlit web application to showcase EDA using Starbucks data! In this mini-project, we'll focus on preparing the data for analysis, an essential step in any data project. Mimicking real-life scenarios, you'll encounter some common data cleaning tasks that will enhance your skills. You can find a link to the dataset [here](https://www.kaggle.com/datasets/henryshan/starbucks/data). **UPDATE:** To focus on practicing with Streamlit, a clean version of this dataset has been added in the `data` folder. **You won't need to execute the cleaning steps outlined below**, but it's essential to acknowledge that often, data cleaning is a prerequisite for effective EDA. 
+Welcome to this hands-on mini-project where you'll be creating a Streamlit web application to showcase EDA using supermarket data! In this project I went through and analyzed a data set from Kaggle that you can find here:  [https://www.kaggle.com/code/fareedalianwar/supermarket-sales](url)
 
 
-## [ALREADY COMPLETED FOR YOU ✅] Data Cleaning
-Your primary objective is to create a Streamlit app that visualizes insights from Starbucks data. However, before you can effectively analyze the data, you need to perform some data cleaning. You should do this in a Jupyter Notebook that you create. Here are the key tasks:
+**Context**
+The growth of supermarkets in most populated cities are increasing and market competitions are also high. The dataset is one of the historical sales of supermarket company which has recorded in 3 different branches for 3 months data. Predictive data analytics methods are easy to apply with this dataset.
 
-1. **Examine and Rename Columns:**
-   - Carefully inspect the column names in the Starbucks dataset. You may notice some unusual spaces. Rename the columns to ensure consistency and clarity. Work together on this!
+**Attribute information**
+Invoice id: Computer generated sales slip invoice identification number
+Branch: Branch of supercenter (3 branches are available identified by A, B and C).
+City: Location of supercenters
+Customer type: Type of customers, recorded by Members for customers using member card and Normal for without member card.
+Gender: Gender type of customer
+Product line: General item categorization groups - Electronic accessories, Fashion accessories, Food and beverages, Health and beauty, Home and lifestyle, Sports and travel
+Unit price: Price of each product in $
+Quantity: Number of products purchased by customer
+Tax: 5% tax fee for customer buying
+Total: Total price including tax
+Date: Date of purchase (Record available from January 2019 to March 2019)
+Time: Purchase time (10am to 9pm)
+Payment: Payment used by customer for purchase (3 methods are available – Cash, Credit card and Ewallet)
+COGS: Cost of goods sold
+Gross margin percentage: Gross margin percentage
+Gross income: Gross income
+Rating: Customer stratification rating on their overall shopping experience (On a scale of 1 to 1
 
-2. **Remove Percentage Signs:**
-   - Some columns may contain values with percentage signs (%). These need to be removed to convert the columns to float types, enabling more accurate analysis.
+**Conclusion **
+Through data exploration I began to realize there was something fishy about the data. The same gender always went to the same branches as an example. There also was very low correlation levels between the columns. The dataset also had a lot of unneeded noise I handled with rounding. 
 
-3. **Convert to Number Types:**
-   - Identify columns that should be represented as numerical types and ensure they are converted accordingly. This step is crucial for accurate statistical analysis and visualization.
+I would go back to the owner of the supermarkets and suggest that they check on how the data is collected to make sure there aren't problems in the collection methods. 
 
-## Streamlit App Development
+I would also note if they wanted to drive traffic to certain branches, they could look at how targetting certain customer types, payment types and genders could have an impact on improving flow into any given specific branch. 
 
-### App Structure
-Your Streamlit app should have a clear and organized structure to effectively communicate your Exploratory Data Analysis (EDA) insights. Follow these guidelines:
-
-#### 1. **Home Page:**
-   - Welcome users to your app with a greeting or introduction.
-   - Enhance the visual appeal by incorporating pictures, emojis, or other engaging elements.
-   - Create an inviting atmosphere to encourage users to explore and navigate through your application.
-
-#### 2. **Overview of the Data:**
-   - Include a section that provides a brief overview of the Starbucks dataset. Describe the key features, data types, and any notable aspects that users should be aware of.
-
-#### 3. **EDA Page:**
-   - Dedicate a separate page or section of your app to Exploratory Data Analysis (EDA). This is where you'll showcase visualizations and insights derived from the cleaned dataset.
-
-### Visualizations
-Focus on creating visualizations that reveal distributions and relationships within the data. Consider using a variety of charts and plots, such as histograms, scatter plots, and box plots. Additionally, feel free to explore any other aspects of the data that interest you and not explicitly covered in class!
-
-#### Example Visualizations:
-   - **Histograms:** Display the distribution of numerical features.
-   - **Scatter Plots:** Explore relationships between two numerical variables.
-   - **Box Plots:** Highlight the spread and central tendency of key features.
-   - **Bar Charts:** Showcase categorical data and comparisons.
-
-
-Feel free to make your app visually appealing by experimenting with Streamlit's customization options. Have fun exploring and visualizing the Starbucks data in your Streamlit app! 
-
-### **Submission Guidelines**
-
-In addition to pushing your work to GitHub, please also record a **2-5 minute video** demonstrating your Streamlit app. Walk through the key features, visualizations, and insights you've gained from the Starbucks data. This is a great opportunity to explain your thought process and showcase your hard work!
-
-When you're finished, submit both your GitHub repository link and your demonstration video. 
