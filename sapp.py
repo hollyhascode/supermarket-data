@@ -31,7 +31,7 @@ obj_cols = df.select_dtypes(include=['object']).columns
 if page == "Home":
     
     st.title("📊 Supermarket Sales Explorer")
-    st.subheader("Welcome to our Airline Customer Branch  dataset explorer app!")
+    st.subheader("Welcome to our Supermarket Sales dataset explorer app!")
     st.write("""
         This app provides an interactive platform to explore the Supermarket Sales dataset.
         You can visualize the distribution of data, explore relationships between features, and even make predictions on new data!
@@ -160,17 +160,17 @@ elif page == "Make Predictions!":
 
     # User inputs for prediction
     #Branch = st.slider("Branch", min_value=4.0, max_value=8.0, value=5.1)
-    customerType = st.slider("Customer type", min_value=2.0, max_value=4.5, value=3.5, step=1.0)
-    #1 is personal travel, #2 is business 
-    productLine = st.slider("Product line", min_value=0.0, max_value=2.0, value=1.0, step=1.0)
+    customerType = st.slider("Customer type", min_value=0.0, max_value=2.0, value=0, step=1.0)
+    #0 is member, 2 is non-member 
+    productLine = st.slider("Product line", min_value=0.0, max_value=5.0, value=1.0, step=1.0)
     #0 is business, 1 is eco, 2 is eco plus 
-    Payment = st.slider("Payment", min_value=0.1, max_value=300.0, value=0.2)
-    Gender = st.slider("Gender", min_value=2.0, max_value=4.5, value=3.5)
-    Rating = st.slider("Rating", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
+    Payment = st.slider("Payment", min_value=0.0, max_value=3.0, value=0.0)
+    Gender = st.slider("Gender", min_value=0.0, max_value=2.5, value=0.0)
+    Rating = st.slider("Rating", min_value=0.0, max_value=10.0, value=0.0, step=1.0)
     #1 is male and 0 is female 
-    grossIncome = st.slider("gross income", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
+    grossIncome = st.slider("gross income", min_value=0.0, max_value=500000.0, value=0.0, step=5000.0)
     #1 is personal travel , 0 is business travel 
-
+ 
       
     # User input dataframe
     user_input = pd.DataFrame({
